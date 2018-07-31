@@ -1,2 +1,2 @@
 # zsh-config
-My initial .zshrc
+My configurations for Zsh.
