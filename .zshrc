@@ -122,3 +122,5 @@ export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
 export PATH=$HADOOP_HOME/bin:$PATH
 export PATH=$HADOOP_HOME/sbin:$PATH
+alias hstart="/usr/local/Cellar/hadoop/3.1.1/sbin/start-all.sh"
+alias hstop="/usr/local/Cellar/hadoop/3.1.1/sbin/stop-all.sh"
