@@ -4,7 +4,7 @@ export TERM="xterm-256color"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -112,15 +112,5 @@ eval "$(jenv init -)"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
-# Hadoop Configuration
-export HADOOP_HOME=/usr/local/Cellar/hadoop/3.1.1/libexec
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
-export PATH=$HADOOP_HOME/bin:$PATH
-export PATH=$HADOOP_HOME/sbin:$PATH
-alias hstart="/usr/local/Cellar/hadoop/3.1.1/sbin/start-all.sh"
-alias hstop="/usr/local/Cellar/hadoop/3.1.1/sbin/stop-all.sh"
+# JavaFX 11 Configuration
+export PATH_TO_FX="/Library/Java/Extensions/javafx-sdk-11/lib"
