@@ -114,3 +114,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
 # JavaFX 11 Configuration
 export PATH_TO_FX="/Library/Java/Extensions/javafx-sdk-11/lib"
+
+# Ruby Configuration
+export PATH="/usr/local/opt/ruby/bin:$PATH"
