@@ -64,6 +64,7 @@ plugins=(
   git
   common-aliases
   sudo
+  z
   zsh-syntax-highlighting
 )
 
