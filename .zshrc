@@ -118,3 +118,6 @@ export PATH_TO_FX="/Library/Java/Extensions/javafx-sdk-11/lib"
 
 # Ruby Configuration
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# SBin Configuration
+export PATH="/usr/local/sbin:$PATH"
