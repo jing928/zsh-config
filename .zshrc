@@ -112,16 +112,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # iTerm2 Shell Integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# jEnv Configuration
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 # Powerlevel9k Configuration
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
-
-# JavaFX 11 Configuration
-export PATH_TO_FX="/Library/Java/Extensions/javafx-sdk-11/lib"
 
 # Ruby Configuration
 export PATH="/usr/local/opt/ruby/bin:$PATH"
