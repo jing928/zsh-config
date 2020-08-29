@@ -126,3 +126,7 @@ export PATH="/usr/local/sbin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval $(thefuck --alias)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jing/.sdkman"
+[[ -s "/Users/jing/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jing/.sdkman/bin/sdkman-init.sh"
