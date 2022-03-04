@@ -116,17 +116,32 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
-# Ruby Configuration
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-# SBin Configuration
-export PATH="/usr/local/sbin:$PATH"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval $(thefuck --alias)
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# Custom functions
+function TunnelToBastion {
+  echo -e 'y\n' | ssh-keygen -t rsa -f /tmp/temp -N '' >/dev/null 2>&1
+  aws ec2-instance-connect send-ssh-public-key \
+    --instance-id $1 \
+    --availability-zone $(aws ec2 describe-instances --instance-id $1 --region $2 --query 'Reservations[].Instances[].Placement.AvailabilityZone' --output text) \
+    --instance-os-user ec2-user \
+    --ssh-public-key file:///tmp/temp.pub \
+    --region $2
+    ssh -i /tmp/temp \
+    -Nf -M \
+    -S temp-ssh.sock \
+    -L $3 ec2-user@$1 \
+    -o "UserKnownHostsFile=/dev/null" \
+    -o "StrictHostKeyChecking=no" \
+    -o ProxyCommand="aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --region $2"
+}
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/jing/.sdkman"
-[[ -s "/Users/jing/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jing/.sdkman/bin/sdkman-init.sh"
+[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
